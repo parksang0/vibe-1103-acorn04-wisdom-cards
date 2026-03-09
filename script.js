@@ -1,8 +1,31 @@
 const display = document.getElementById('display');
 const buttons = document.querySelectorAll('.buttons button');
+const themeToggle = document.getElementById('theme-toggle');
 
 // 최근 5개 계산 기록
 const history = [];
+
+function setTheme(theme) {
+  if (theme === 'light') {
+    document.body.classList.add('light-theme');
+    themeToggle.textContent = 'Dark';
+    themeToggle.setAttribute('aria-label', 'Switch to dark theme');
+    localStorage.setItem('calculator-theme', 'light');
+  } else {
+    document.body.classList.remove('light-theme');
+    themeToggle.textContent = 'Light';
+    themeToggle.setAttribute('aria-label', 'Switch to light theme');
+    localStorage.setItem('calculator-theme', 'dark');
+  }
+}
+
+const savedTheme = localStorage.getItem('calculator-theme');
+setTheme(savedTheme === 'light' ? 'light' : 'dark');
+
+themeToggle.addEventListener('click', () => {
+  const isLight = document.body.classList.contains('light-theme');
+  setTheme(isLight ? 'dark' : 'light');
+});
 
 function updateDisplay(value) {
   if (value === '' || value === null) {

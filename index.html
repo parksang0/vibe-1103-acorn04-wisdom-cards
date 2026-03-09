@@ -3,12 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>심플 계산기</title>
+  <title>Simple Calculator</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="calculator">
-    <h1>심플 계산기</h1>
+    <div class="calculator-header">
+      <h1 class="calculator-title">Simple Calculator</h1>
+      <button
+        type="button"
+        id="theme-toggle"
+        class="theme-toggle"
+        aria-label="Switch to light theme"
+      >
+        Light
+      </button>
+    </div>
     <input type="text" id="display" readonly placeholder="0" />
     <div class="buttons">
       <button type="button" data-value="7">7</button>
